@@ -8,6 +8,7 @@ import { toast } from 'react-toastify'
 
 const MoviesList = () => {
   const [movies, setMovies] = useState<MovieData[]>([])
+  const [favMovies, setFavMovies] = useState<MovieData[]>([])
 
   const imagePath = 'https://image.tmdb.org/t/p/w500'
 

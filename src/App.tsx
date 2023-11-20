@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage'
 import ProfilePage from './pages/ProfilePage'
 import PrivateRoutes from './utils/PrivateRoute'
 import RegistrationPage from './pages/RegistrationPage'
+import FavoriteDetailsPage from './pages/FavoriteDetailsPage'
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
             <Route element={<HomePage />} path="/home" />
             <Route element={<ProfilePage />} path="/profile" />
             <Route element={<DetailsPage />} path="/details/:id" />
+            <Route
+              element={<FavoriteDetailsPage />}
+              path="/favorite-details/:id"
+            />
           </Route>
           <Route element={<LoginPage />} path="/" />
           <Route element={<RegistrationPage />} path="/register" />

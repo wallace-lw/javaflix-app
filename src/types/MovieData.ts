@@ -6,4 +6,5 @@ export type MovieData = {
   release_date?: string
   poster_path?: string
   to?: string
+  externalId?: string
 }
