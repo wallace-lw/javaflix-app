@@ -1,19 +1,35 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { MovieData } from '../types/MovieData'
 import { formatDate } from '../utils/formatDate'
 import { Heart } from 'phosphor-react'
 import { toast } from 'react-toastify'
-import { saveFavoriteMovie } from '../services/saveFavoriteMovie'
 import { SaveMovie } from '../types/SaveMovie'
+import { MovieContext } from '../context/MovieContext'
 
 const Details = () => {
   const imagePath = 'https://image.tmdb.org/t/p/w500'
 
+  const { savedMovies, setSavedMovies } = useContext(MovieContext)
+
   const { id } = useParams()
   const [movie, setMovie] = useState<MovieData>({})
   const [isFavorite, setIsFavorite] = useState(false)
+
+  const saveFavorite = async () => {
+    const newFavoriteMovie: SaveMovie = {
+      externalId: movie.id,
+      poster_path: movie.poster_path,
+      title: movie.title,
+      overview: movie.overview,
+      release_date: movie.release_date,
+    }
+    setSavedMovies([...savedMovies, newFavoriteMovie])
+
+    toast(`${movie.title} foi para sua lista de favoritos.`)
+    setIsFavorite(true)
+  }
 
   useEffect(() => {
     try {
@@ -28,22 +44,6 @@ const Details = () => {
       console.log(error)
     }
   }, [id])
-
-  const saveFavorite = async () => {
-    const favoriteMovie: SaveMovie = {
-      externalId: movie.id,
-      poster_path: movie.poster_path,
-      title: movie.title,
-      overview: movie.overview,
-      release_date: movie.release_date,
-    }
-    const response = await saveFavoriteMovie(favoriteMovie)
-
-    if (response.status === 201) {
-      toast(`${movie.title} foi para sua lista de favoritos.`)
-      setIsFavorite(true)
-    }
-  }
 
   return (
     <>
