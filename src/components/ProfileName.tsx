@@ -16,7 +16,7 @@ const ProfileContainer = () => {
   return (
     <div className="py-10 w-full flex gap-5 justify-center items-center">
       <button
-        className="  bg-red-600 text-start text-zinc-100 font-bold tracking-wide text-lg px-10 py-3 gap-3 rounded-xl transition-all hover:scale-105 xl:w-[600px] md:w-[350px] "
+        className=" uppercase bg-red-600 text-start text-zinc-100 font-bold tracking-wide text-lg px-10 py-3 gap-3 rounded-xl transition-all hover:scale-105 xl:w-[600px] md:w-[350px] "
         onClick={() => navigate('/profile')}
       >
         {userName}
