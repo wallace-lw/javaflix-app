@@ -16,6 +16,9 @@ export const userLogin = async (data: User) => {
         `${axiosError.response.status}: Não autorizado a fazer login.`,
       )
     }
+    if (axiosError.response?.status === 404) {
+      toast.error(`${axiosError.response.status}: Usuário não encontrado!.`)
+    }
 
     if (axiosError.response?.status === 500) {
       toast.error(

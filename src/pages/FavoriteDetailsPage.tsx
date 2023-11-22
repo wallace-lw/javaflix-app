@@ -1,5 +1,5 @@
 import FavoriteDetails from '../components/FavoriteMovie'
-import Footer from '../components/Footer'
+import FeedbackSession from '../components/FeedbackSession'
 import Header from '../components/Header'
 
 const FavoriteDetailsPage = () => {
@@ -7,7 +7,7 @@ const FavoriteDetailsPage = () => {
     <>
       <Header />
       <FavoriteDetails />
-      <Footer />
+      <FeedbackSession />
     </>
   )
 }
