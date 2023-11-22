@@ -26,7 +26,6 @@ const Details = () => {
       release_date: movie.release_date,
     }
     setSavedMovies([...savedMovies, newFavoriteMovie])
-
     toast(`${movie.title} foi para sua lista de favoritos.`)
     setIsFavorite(true)
   }

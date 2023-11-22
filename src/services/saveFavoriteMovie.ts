@@ -8,7 +8,7 @@ export const saveFavoriteMovie = async (data: SaveMovie) => {
     const response = await api.post('/save', {
       ...data,
     })
-
+    console.log(response)
     return response.data
   } catch (error) {
     const axiosError = error as AxiosError
